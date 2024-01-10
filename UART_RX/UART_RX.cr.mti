@@ -1,0 +1,64 @@
+{E:/Digital Diploma Ali EL Temsah/projects/UART_RX/UART_RX.v} {1 {vlog -work work {E:/Digital Diploma Ali EL Temsah/projects/UART_RX/UART_RX.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module UART_RX
+
+Top level modules:
+	UART_RX
+
+} {} {}} {E:/Digital Diploma Ali EL Temsah/projects/UART_RX/Parity_Check.v} {1 {vlog -work work {E:/Digital Diploma Ali EL Temsah/projects/UART_RX/Parity_Check.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Parity_Check
+
+Top level modules:
+	Parity_Check
+
+} {} {}} {E:/Digital Diploma Ali EL Temsah/projects/UART_RX/FSM.v} {1 {vlog -work work {E:/Digital Diploma Ali EL Temsah/projects/UART_RX/FSM.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module FSM
+
+Top level modules:
+	FSM
+
+} {} {}} {E:/Digital Diploma Ali EL Temsah/projects/UART_RX/Edge_Bit_Counter.v} {1 {vlog -work work {E:/Digital Diploma Ali EL Temsah/projects/UART_RX/Edge_Bit_Counter.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Edge_Bit_Counter
+
+Top level modules:
+	Edge_Bit_Counter
+
+} {} {}} {E:/Digital Diploma Ali EL Temsah/projects/UART_RX/Deserializer.v} {1 {vlog -work work {E:/Digital Diploma Ali EL Temsah/projects/UART_RX/Deserializer.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Deserializer
+
+Top level modules:
+	Deserializer
+
+} {} {}} {E:/Digital Diploma Ali EL Temsah/projects/UART_RX/Start_Check.v} {1 {vlog -work work {E:/Digital Diploma Ali EL Temsah/projects/UART_RX/Start_Check.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Start_Check
+
+Top level modules:
+	Start_Check
+
+} {} {}} {E:/Digital Diploma Ali EL Temsah/projects/UART_RX/Stop_Check.v} {1 {vlog -work work {E:/Digital Diploma Ali EL Temsah/projects/UART_RX/Stop_Check.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module End_Check
+
+Top level modules:
+	End_Check
+
+} {} {}} {E:/Digital Diploma Ali EL Temsah/projects/UART_RX/Deserializer_tb.v} {1 {vlog -work work {E:/Digital Diploma Ali EL Temsah/projects/UART_RX/Deserializer_tb.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Deserializer_tb
+
+Top level modules:
+	Deserializer_tb
+
+} {} {}} {E:/Digital Diploma Ali EL Temsah/projects/UART_RX/Data_Sampling.v} {1 {vlog -work work {E:/Digital Diploma Ali EL Temsah/projects/UART_RX/Data_Sampling.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Data_Sampling
+
+Top level modules:
+	Data_Sampling
+
+} {} {}}

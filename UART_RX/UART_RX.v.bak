@@ -1,0 +1,152 @@
+/******************************************************************************
+*
+* Module: Private - UART Transmiter Block
+*
+* File Name: UART_RX.v
+*
+* Description:  this file is used for implementation of the UART Transmiter
+*
+* Author: Mohamed A. Eladawy
+*
+*******************************************************************************/
+module UART_RX # (
+  
+parameter prescale_Width = 8  ,
+parameter DATA_Width     = 8  )//initialize a parameter variable with value 8
+
+(
+
+input wire    [prescale_Width-1 :0]    Prescale_UART_RX       , //Declaring the Variable As an Input Port with width 8 bit
+input wire                             RX_IN_UART_RX          , //Declaring the Variable As an Input Port with width 1 bit 
+input wire                             PAR_EN_UART_RX         , //Declaring the Variable As an Input Port with width 1 bit
+input wire                             PAR_TYPE_UART_RX       , //Declaring the Variable As an Input Port with width 1 bit
+input wire                             RST_UART_RX            , //Declaring the Variable As an Input Port with width 1 bit
+input wire                             CLK_UART_RX            , //Declaring the Variable As an Input Port with width 1 bit
+output wire                            DATA_VALId_UART_RX     , //Declaring the Variable As an Output Port with width 1 bit 
+output wire   [DATA_Width-1 :0]        P_DATA_UART_RX           //Declaring the Variable As an Output Port with width 1 bit 
+
+);
+
+//****************** Parameeters Initialization  ****************//
+
+localparam         Out_Width           = 32 ;            //initialize a parameter variable with a binary value 32
+
+//********************Internal Signal Declaration*****************//
+
+wire                       PAR_CHK_EN_UART_RX    ; //Declaring the Variable As a wire 
+wire                       PAR_ERR_UART_RX       ; //Declaring the Variable As a wire
+wire                       STR_CHK_EN_UART_RX    ; //Declaring the Variable As a wire 
+wire                       STR_ERR_UART_RX       ; //Declaring the Variable As a wire
+wire                       STP_CHK_EN_UART_RX    ; //Declaring the Variable As a wire
+wire                       STP_ERR_UART_RX       ; //Declaring the Variable As a wire
+wire                       DSER_EN_UART_RX       ; //Declaring the Variable As a wire
+wire                       SAMPLED_BIT_UART_RX   ; //Declaring the Variable As a wire
+wire                       COUNTER_EN_UART_RX    ; //Declaring the Variable As a wire
+wire    [3:0]              BIT_CNT_UART_RX       ; //Declaring the Variable As a wire
+wire    [3:0]              EDGE_CNT_UART_RX      ; //Declaring the Variable As a wire
+wire                       DATA_SAMP_EN_UART_RX  ; //Declaring the Variable As a wire
+
+       
+                              
+//********************************************************************//
+
+//******************** Port Mapping For Every Block ******************//
+
+
+//********************  FSM Block Port  Mapping   ******************//
+
+FSM FSM_UART_RX ( //Instantiation of the control unit.
+
+.CLK(CLK_UART_RX)                            ,
+.RST(RST_UART_RX)                            ,
+.PAR_EN_FSM(PAR_CHK_EN_UART_RX)              ,
+.RX_IN_FSM(RX_IN_UART_RX)                    ,
+.STR_CHK_ERR_FSM(STR_ERR_UART_RX)            ,
+.END_CHK_ERR_FSM(STP_ERR_UART_RX)            ,
+.PAR_CHK_ERR_FSM(PAR_ERR_UART_RX)            ,
+.BIT_Counts_FSM(BIT_CNT_UART_RX)             ,
+.EDGE_Counts_FSM(EDGE_CNT_UART_RX)           ,
+.STR_CHK_EN_FSM(STR_CHK_EN_UART_RX)          ,
+.END_CHK_EN_FSM (STP_CHK_EN_UART_RX)         ,  
+.PAR_CHK_EN_FSM (PAR_CHK_EN_UART_RX)         ,  
+.COUNTER_CHK_EN_FSM (COUNTER_EN_UART_RX)     ,  
+.DATA_SAMP_EN_FSM (DATA_SAMP_EN_UART_RX)     ,  
+.DESER_EN_FSM (DSER_EN_UART_RX)              ,  
+.Data_Valid_Fsm(DATA_VALId_UART_RX)  
+
+);
+
+//******************** FSM Block Port  Mapping   ******************//
+
+Data_Sampling DATA_SAMPLE_UART_RX( //Instantiation of the data path block.
+
+.CLK(CLK_UART_RX)                    ,
+.RST(RST_UART_RX)                    ,
+.Pre_scale_Samp(Prescale_UART_RX)    ,
+.dat_samp_en(DATA_SAMP_EN_UART_RX)   ,
+.RX_IN(RX_IN_UART_RX)                ,
+.edge_cnt_Samp(EDGE_CNT_UART_RX)     ,
+.Sampled_Bit (SAMPLED_BIT_UART_RX)   
+
+);
+
+//******************** PARITY BLOCK Block Port  Mapping   ******************//
+
+Deserializer DSERIALIZER_UART_RX ( //Instantiation of the DATA_MEMORY block.
+
+.CLK(CLK_UART_RX)                        ,
+.RST(RST_UART_RX)                        ,
+.Deser_EN(DSER_EN_UART_RX)               ,
+.Sampled_Bit_Deser(SAMPLED_BIT_UART_RX ) ,
+.Edge_count(EDGE_CNT_UART_RX)            ,
+.P_Data_Deser(P_DATA_UART_RX)      
+
+);
+
+//******************** MUX Block Port  Mapping   ******************//
+
+
+ Edge_Bit_Counter  COUNTER_UART_RX ( //Instantiation of the Instruction_Memory block.
+
+.Pre_scale(Prescale_UART_RX)             ,
+.Enable(COUNTER_EN_UART_RX)              ,
+.CLK(CLK_UART_RX)                        ,
+.RST(RST_UART_RX)                        ,
+.bit_cnt(BIT_CNT_UART_RX)                ,
+.edge_cnt(EDGE_CNT_UART_RX)                        
+);
+
+Parity_Check PARITY_CHK_UART_RX (
+
+.PAR_TYP(PAR_TYPE_UART_RX)                ,
+.PAR_CHK_EN(PAR_CHK_EN_UART_RX)           ,
+.CLK(CLK_UART_RX)                         ,
+.RST(RST_UART_RX)                         ,
+.P_DATA_Par(P_DATA_UART_RX)               ,
+.Sampled_Bit_par_chk(SAMPLED_BIT_UART_RX) , 
+.PAR_ERR(PAR_ERR_UART_RX)        
+
+); 
+
+
+Start_Check START_CHK_UART_RX (
+
+.Start_CHK_EN(STR_CHK_EN_UART_RX)         ,
+.CLK(CLK_UART_RX)                         ,
+.RST(RST_UART_RX)                         ,
+.Sampled_Bit_Start(SAMPLED_BIT_UART_RX)   ,
+.Start_Err(STR_ERR_UART_RX)        
+
+); 
+
+End_Check END_CHK_UART_RX (
+
+.End_CHK_EN(STP_CHK_EN_UART_RX)         ,
+.CLK(CLK_UART_RX)                         ,
+.RST(RST_UART_RX)                         ,
+.Sampled_Bit_End(SAMPLED_BIT_UART_RX)   ,
+.End_Err(STP_ERR_UART_RX)        
+
+); 
+endmodule 
+

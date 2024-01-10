@@ -1,0 +1,107 @@
+/******************************************************************************
+*
+* Module: Private - Edge Bit Counter Block 
+*
+* File Name: Edge_Bit_Counter.v
+*
+* Description:  This Block Is Used To Count the number of edges and Bits 
+*               
+*
+* Author: Mohamed A. Eladawy
+*
+*******************************************************************************/
+
+//********************Port Declaration*************************//
+module  Edge_Bit_Counter # (
+
+parameter INPUT_WIDTH    = 4 ,
+parameter Number_Edges   = 4 ,
+parameter Number_Bits    = 4 ) //initialize a parameter variable with value 8 
+  
+(
+
+input wire  [INPUT_WIDTH-1 : 0 ]  Pre_scale    ,  //Declaring the Variable As an Input Port with width 8 bits 
+input wire                        Enable       ,  //Declaring the Variable As an Input Port with width 1 bit
+input wire                        CLK          ,  //Declaring the Variable As an Input Port with width 1 bit
+input wire                        RST          ,  //Declaring the Variable As an Input Port with width 1 bit
+output reg  [Number_Bits-1  : 0 ] bit_cnt      ,  //Declaring the Variable As an output Port with width 1 bit
+output reg  [Number_Edges-1 : 0 ] edge_cnt        //Declaring the Variable As an output Port with width 1 bit    
+
+); 
+//****************** Parameeters Initialization  ****************//
+
+localparam          ONE            = 1'b1   ,//initialize a parameter variable with a binary value 1
+                    ZERO           = 1'b0   ,//initialize a parameter variable with a binary value 0
+                    Counter_width  = 4      ;//initialize a parameter variable with a binary value 4
+
+//********************Internal Signal Declaration*****************//
+
+//reg [Counter_width-1 : 0 ]                       Counter         ;
+//reg [Counter_width-1 : 0 ]                       Counter1         ;
+wire                           edge_count_done ;
+                    
+//*************************** The RTL Code *****************************//
+/*************** Starting The Sequential Always Block ***************/
+
+always @(posedge CLK or negedge RST )
+
+begin 
+        if(!RST)
+        
+           begin
+              
+               edge_cnt <= 'b0 ;
+                   
+               
+           end
+  
+  else if(Enable)
+   begin
+    if (edge_count_done)
+	 begin
+      edge_cnt <= 'b0 ;
+	 end
+	else
+	 begin
+      edge_cnt <= edge_cnt + 'b1 ;
+	 end	
+   end 
+  else
+   begin
+    edge_cnt <= 'b0 ;
+   end   
+ end
+ 
+
+        
+
+/*************** Starting The Sequential Always Block ***************/
+
+assign edge_count_done = (edge_cnt == 'b111) ? 1'b1 : 1'b0 ; 
+
+always @(posedge CLK or negedge RST )
+
+begin 
+        if(!RST)
+        
+           begin
+              
+               bit_cnt <= 'b0 ;
+                   
+               
+           end
+  else if(Enable)
+   begin
+    if (edge_count_done)
+	 begin
+      bit_cnt <= bit_cnt + 'b1 ;
+	 end
+   end 
+  else
+   begin
+    bit_cnt <= 'b0 ;
+   end	
+ end 
+
+
+endmodule
