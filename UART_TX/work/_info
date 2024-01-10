@@ -1,0 +1,145 @@
+m255
+K3
+13
+cModel Technology
+Z0 dE:\Digital Diploma\Si-Vision Academy\Vidoes
+vFSM
+Z1 !s100 K9;eb2[mWE@FkTMR511gM1
+Z2 IB[V[1[QZiZA5eXjjd4K1b3
+Z3 VcN?=F4`_[GZaHNbz?6k`>3
+Z4 dE:\Digital Diploma Ali EL Temsah\projects\UART_TX
+Z5 w1663429097
+Z6 8E:/Digital Diploma Ali EL Temsah/projects/UART_TX/FSM.v
+Z7 FE:/Digital Diploma Ali EL Temsah/projects/UART_TX/FSM.v
+L0 15
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -reportprogress|300|-work|work|E:/Digital Diploma Ali EL Temsah/projects/UART_TX/FSM.v|
+Z10 o-work work -O0
+Z11 n@f@s@m
+Z12 !s108 1664627919.008000
+Z13 !s107 E:/Digital Diploma Ali EL Temsah/projects/UART_TX/FSM.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vMUX
+Z14 !s100 ^OPdAhOSlNR7IiYFPF^Z;0
+Z15 ID^AX2SAnN?P8:YS:Vl:jc3
+Z16 V7WBG;;j0OMZlUG5<6WiRX0
+R4
+Z17 w1663370939
+Z18 8E:/Digital Diploma Ali EL Temsah/projects/UART_TX/MUX.v
+Z19 FE:/Digital Diploma Ali EL Temsah/projects/UART_TX/MUX.v
+L0 13
+R8
+r1
+31
+Z20 !s90 -reportprogress|300|-work|work|E:/Digital Diploma Ali EL Temsah/projects/UART_TX/MUX.v|
+R10
+Z21 n@m@u@x
+Z22 !s108 1664627919.352000
+Z23 !s107 E:/Digital Diploma Ali EL Temsah/projects/UART_TX/MUX.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vParity_Block
+Z24 !s100 ;8K5SlWdc1c648jjf9HZm3
+Z25 I9]eM1ZbeD<G<l1QBDgknI2
+Z26 VJ0fcoK>L^>z97?m?k0M<03
+R4
+Z27 w1663384668
+Z28 8E:/Digital Diploma Ali EL Temsah/projects/UART_TX/Parity_Calculator.v
+Z29 FE:/Digital Diploma Ali EL Temsah/projects/UART_TX/Parity_Calculator.v
+L0 15
+R8
+r1
+31
+Z30 !s90 -reportprogress|300|-work|work|E:/Digital Diploma Ali EL Temsah/projects/UART_TX/Parity_Calculator.v|
+R10
+Z31 n@parity_@block
+Z32 !s108 1664627919.181000
+Z33 !s107 E:/Digital Diploma Ali EL Temsah/projects/UART_TX/Parity_Calculator.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vParity_Calc
+Z34 IJlEA=n4Xo7N^iiSnS>eUz1
+Z35 VB::>H3V4@7=PU]A:1]18i0
+R4
+Z36 w1663381356
+R28
+R29
+L0 14
+R8
+r1
+31
+R30
+R10
+Z37 n@parity_@calc
+Z38 !s100 UmF?jX>H[=cl7I?YaaBeT1
+Z39 !s108 1663381359.905000
+R33
+!i10b 1
+!s85 0
+!s101 -O0
+vSerializer
+Z40 !s100 :WW>R<A8:o1>7K=1367nI3
+Z41 IFEjZh7P2_CXaeNW1W5n0o2
+Z42 VL6@H]chA[2jeP:gj5EJMJ0
+R4
+Z43 w1663428903
+Z44 8E:/Digital Diploma Ali EL Temsah/projects/UART_TX/Serializer.v
+Z45 FE:/Digital Diploma Ali EL Temsah/projects/UART_TX/Serializer.v
+L0 15
+R8
+r1
+31
+Z46 !s90 -reportprogress|300|-work|work|E:/Digital Diploma Ali EL Temsah/projects/UART_TX/Serializer.v|
+R10
+Z47 n@serializer
+Z48 !s108 1664627918.229000
+Z49 !s107 E:/Digital Diploma Ali EL Temsah/projects/UART_TX/Serializer.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vUART_TX
+Z50 !s100 4:UfjfzjG7hl]KWAeXNkO0
+Z51 I?2[f1caHg_dM0FPiB`>LG1
+Z52 Vb4D[gPPYf@N_DaXO@Z`>41
+R4
+Z53 w1663425618
+Z54 8E:/Digital Diploma Ali EL Temsah/projects/UART_TX/UART_TX.v
+Z55 FE:/Digital Diploma Ali EL Temsah/projects/UART_TX/UART_TX.v
+L0 12
+R8
+r1
+31
+Z56 !s90 -reportprogress|300|-work|work|E:/Digital Diploma Ali EL Temsah/projects/UART_TX/UART_TX.v|
+R10
+Z57 n@u@a@r@t_@t@x
+!i10b 1
+!s85 0
+Z58 !s108 1664627919.542000
+Z59 !s107 E:/Digital Diploma Ali EL Temsah/projects/UART_TX/UART_TX.v|
+!s101 -O0
+vUART_TX_tb
+!i10b 1
+!s100 T6=ozYI?z<jPXE59ae@7b3
+IL9mF6[O7T2a^_IfUGJ[An3
+Z60 V2gI12^TEJG^eHob<FgKMe2
+R4
+w1664627920
+Z61 8E:/Digital Diploma Ali EL Temsah/projects/UART_TX/UART_TX_tb.v
+Z62 FE:/Digital Diploma Ali EL Temsah/projects/UART_TX/UART_TX_tb.v
+L0 12
+R8
+r1
+!s85 0
+31
+!s108 1664627920.885000
+!s107 E:/Digital Diploma Ali EL Temsah/projects/UART_TX/UART_TX_tb.v|
+Z63 !s90 -reportprogress|300|-work|work|E:/Digital Diploma Ali EL Temsah/projects/UART_TX/UART_TX_tb.v|
+!s101 -O0
+R10
+Z64 n@u@a@r@t_@t@x_tb

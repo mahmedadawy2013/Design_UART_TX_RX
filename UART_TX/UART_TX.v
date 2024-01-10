@@ -1,0 +1,104 @@
+/******************************************************************************
+*
+* Module: Private - UART Transmiter Block
+*
+* File Name: UART_TX.v
+*
+* Description:  this file is used for implementation of the UART Transmiter
+*
+* Author: Mohamed A. Eladawy
+*
+*******************************************************************************/
+module UART_TX # (
+  
+parameter Data_Width = 8  )  //initialize a parameter variable with value 8
+
+(
+
+input wire    [Data_Width-1 :0]        P_DATA_UART         , //Declaring the Variable As an Input Port with width 8 bit
+input wire                             DATA_VALID_UART     , //Declaring the Variable As an Input Port with width 1 bit 
+input wire                             PAR_EN_UART         , //Declaring the Variable As an Input Port with width 1 bit
+input wire                             PAR_TYPE_UART       , //Declaring the Variable As an Input Port with width 1 bit
+input wire                             RST_UART            , //Declaring the Variable As an Input Port with width 1 bit
+input wire                             CLK_UART            , //Declaring the Variable As an Input Port with width 1 bit
+output wire                            TX_OUT_UART         , //Declaring the Variable As an Input Port with width 1 bit 
+output wire                            BUSY_UART             //Declaring the Variable As an Input Port with width 1 bit 
+
+);
+
+//****************** Parameeters Initialization  ****************//
+
+localparam         Out_Width           = 32 ;            //initialize a parameter variable with a binary value 32
+
+//********************Internal Signal Declaration*****************//
+
+wire                       SER_DONE_UART    ; //Declaring the Variable As a wire 
+wire                       SER_EN_UART      ; //Declaring the Variable As a wire
+wire                       SER_DATA_UART    ; //Declaring the Variable As a wire 
+wire                       PAR_BIT_UART     ; //Declaring the Variable As a wire
+wire   [1 :0]              MUX_SEL_UART     ; //Declaring the Variable As a wire
+       
+                              
+//********************************************************************//
+
+//******************** Port Mapping For Every Block ******************//
+
+
+//******************** Serializer Block Port  Mapping   ******************//
+
+Serializer SERIALIZER_B ( //Instantiation of the control unit.
+
+.P_Data(P_DATA_UART)         ,
+.Data_Valid(DATA_VALID_UART) ,
+.CLK(CLK_UART)               ,
+.RST(RST_UART)               ,
+.Ser_Enable(SER_EN_UART)     ,
+.Busy_Sir(BUSY_UART)         ,
+.Ser_Data(SER_DATA_UART)     ,
+.Ser_Done (SER_DONE_UART)     
+
+);
+
+//******************** FSM Block Port  Mapping   ******************//
+
+FSM FSM_B( //Instantiation of the data path block.
+
+.CLK ( CLK_UART )                 ,
+.RST (RST_UART)                   ,
+.Data_Valid_Fsm(DATA_VALID_UART)  ,
+.Par_Enable(PAR_EN_UART)          ,
+.SER_DONE(SER_DONE_UART)          ,
+.SER_ENABLE(SER_EN_UART)          ,
+.Busy (BUSY_UART)                 ,
+.Mux_Sel (MUX_SEL_UART)   
+
+);
+
+//******************** PARITY BLOCK Block Port  Mapping   ******************//
+
+Parity_Block PARITY_BLOCK_U ( //Instantiation of the DATA_MEMORY block.
+
+.P_Data(P_DATA_UART)         ,
+.Data_Valid(DATA_VALID_UART) ,
+.CLK(CLK_UART)               ,
+.RST(RST_UART )              ,
+.Par_Type(PAR_TYPE_UART)     ,
+.Par_bit(PAR_BIT_UART)      
+
+);
+
+//******************** MUX Block Port  Mapping   ******************//
+
+
+ MUX  MUX_U ( //Instantiation of the Instruction_Memory block.
+
+.SEL(MUX_SEL_UART)             ,
+.Ser_Data_Mux(SER_DATA_UART)   ,
+.Parity_Bit(PAR_BIT_UART)      ,
+.TX_OUT(TX_OUT_UART)   
+
+);
+
+
+endmodule 
+

@@ -1,0 +1,43 @@
+{E:/Digital Diploma Ali EL Temsah/projects/UART_TX/UART_TX.v} {1 {vlog -work work {E:/Digital Diploma Ali EL Temsah/projects/UART_TX/UART_TX.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module UART_TX
+
+Top level modules:
+	UART_TX
+
+} {} {}} {E:/Digital Diploma Ali EL Temsah/projects/UART_TX/UART_TX_tb.v} {1 {vlog -work work {E:/Digital Diploma Ali EL Temsah/projects/UART_TX/UART_TX_tb.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module UART_TX_tb
+
+Top level modules:
+	UART_TX_tb
+
+} {} {}} {E:/Digital Diploma Ali EL Temsah/projects/UART_TX/FSM.v} {1 {vlog -work work {E:/Digital Diploma Ali EL Temsah/projects/UART_TX/FSM.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module FSM
+
+Top level modules:
+	FSM
+
+} {} {}} {E:/Digital Diploma Ali EL Temsah/projects/UART_TX/Serializer.v} {1 {vlog -work work {E:/Digital Diploma Ali EL Temsah/projects/UART_TX/Serializer.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Serializer
+
+Top level modules:
+	Serializer
+
+} {} {}} {E:/Digital Diploma Ali EL Temsah/projects/UART_TX/Parity_Calculator.v} {1 {vlog -work work {E:/Digital Diploma Ali EL Temsah/projects/UART_TX/Parity_Calculator.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Parity_Block
+
+Top level modules:
+	Parity_Block
+
+} {} {}} {E:/Digital Diploma Ali EL Temsah/projects/UART_TX/MUX.v} {1 {vlog -work work {E:/Digital Diploma Ali EL Temsah/projects/UART_TX/MUX.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module MUX
+
+Top level modules:
+	MUX
+
+} {} {}}
